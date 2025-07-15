@@ -1,16 +1,17 @@
-# VaR Calculation Using Three Different Methodologies From yfinance api
+# VaR Calculator for Indian Stocks
 
-A command-line tool for calculating Value at Risk (VaR) of Indian stocks using three different methodologies by fetching the data from the yfinance api. This tool helps investors quantify potential portfolio losses under normal market conditions.
+A command-line tool that calculates Value at Risk (VaR) for Indian stocks using three different methodologies. Fetches stock data from Yahoo Finance and helps investors quantify potential portfolio losses.
 
 ## Features
 
-- Calculates Value at Risk using:
-  - Parametric method (Variance-Covariance)
-  - Historical simulation
-  - Monte Carlo simulation
-- Supports stocks from both NSE and BSE exchanges
-- Generates comparative visualization of results
-- Configurable parameters for confidence level, time horizon, and simulation settings
+- **Three Calculation Methods**:
+  - 📊 Parametric (Variance-Covariance)
+  - 📈 Historical Simulation
+  - 🎲 Monte Carlo Simulation
+- **Exchange Support**: Works with both NSE and BSE stocks
+- **Visual Reports**: Generates comparative charts of results
+- **Configurable Parameters**: Adjust confidence level, time horizon, etc.
+- **Automatic Data Management**: Creates necessary directories at runtime
 
 ## Installation
 
@@ -27,98 +28,89 @@ pip install -r requirements.txt
 
 ## Usage
 
-### For Python Module Execution
+### Basic Command:
 ```bash
-python -m src.cli [TICKER] [EXCHANGE] [PORTFOLIO_VALUE] [OPTIONS]
+python main.py [TICKER] [EXCHANGE] [PORTFOLIO_VALUE] [OPTIONS]
 ```
 
-### Required Arguments
+### Arguments:
 | Argument          | Description                         | Example       |
 |-------------------|-------------------------------------|---------------|
 | `TICKER`          | Stock ticker symbol                 | `RELIANCE`    |
-| `EXCHANGE`        | Stock exchange (`NSE` or `BSE`)     | `NSE`         |
+| `EXCHANGE`        | `NSE` or `BSE`                      | `NSE`         |
 | `PORTFOLIO_VALUE` | Portfolio value in INR              | `1000000`     |
 
-### Optional Parameters
-| Option              | Description                          | Default Value |
-|---------------------|--------------------------------------|---------------|
-| `--confidence`      | Confidence level (0.90-0.99)         | 0.95          |
-| `--horizon`         | Time horizon in days                 | 1             |
-| `--window`          | Historical data window size (days)   | 252           |
-| `--simulations`     | Monte Carlo simulations count        | 10000         |
+### Options:
+| Option              | Description                          | Default |
+|---------------------|--------------------------------------|---------|
+| `--confidence`      | Confidence level (0.90-0.99)         | 0.95    |
+| `--horizon`         | Time horizon in days                 | 1       |
+| `--window`          | Historical data window (days)        | 252     |
+| `--simulations`     | Monte Carlo simulations count        | 10000   |
 
-### Example
-
-#### Using Alternative Module Execution
+### Example:
 ```bash
-python -m src.cli RELIANCE NSE 1000000 --confidence 0.99 --horizon 5
+python main.py RELIANCE NSE 1000000 --confidence 0.99 --horizon 5
 ```
 
-#### Sample Output
+### Sample Output:
 ```
-Portfolio data saved as: 'portfolio_<user>_<ticker>_<date>_<time>.csv'
+Value at Risk for RELIANCE portfolio (₹1,000,000):
+• Parametric VaR: ₹48,215.67
+• Historical VaR: ₹52,890.45
+• Monte Carlo VaR: ₹51,327.83
 
-Value at Risk for RELIANCE portflio of value 1000000:
-Parametric Var: ₹48,215.67
-Historical Var: ₹52,890.45
-Monte Carlo Var: ₹51,327.83
-
-Comparison plot saved as 'var_report_<user>_<ticker>_<date>_<time>.png'
+Portfolio data saved: portfolio_user_RELIANCE_20230716_153045.csv
+Comparison plot saved: var_report_user_RELIANCE_20230716_153045.png
 ```
 
-## File Structure
+## Project Structure
+
 ```
 VaR_Calculator/
-├── config/
-│   ├── logging.conf
-│   └── settings.py
-├── data/
-│   ├── logs/
-│   │   └── user.csv
-│   │   └── input_<user>_<date>_<time>.csv
-│   ├── portfolios/
-│   │   └── portfolio_<user>_<ticker>_<date>_<time>.csv
-│   ├── results/
-│   │   └── var_result_<user>_<ticker>_<date>_<time>.csv
-│   └── reports/
-│   │   └── var_report_<user>_<ticker>_<date>_<time>.png
-├── src/
-│   └── var_calculator/
-│       ├── __init__.py
-│       ├── calculator/
-│       │   ├── historical_VaR.py
-│       │   ├── monte_carlo_VaR.py
-│       │   └── parametric_VaR.py
-│       ├── core/
-│       │   ├── data_fetcher.py
-│       │   ├── exceptions.py
-│       │   └── report_VaR.py
-│       └── cli.py
-├── .gitignore
-├── LICENSE
-├── MANIFEST.in
-├── README.md
-├── pyproject.toml
-├── setup.cfg
-├── setup.py
-└── requirements.txt
+├── config/                  # Configuration files
+│   ├── logging.conf         # Logging setup
+│   └── settings.py          # Application settings
+├── data/                    # Auto-generated data
+│   ├── logs/                # Application logs
+│   ├── portfolios/          # Portfolio data
+│   └── reports/             # Generated charts
+├── src/                     # Source code
+│   ├── cli.py               # Command-line interface
+│   ├── data_fetcher.py      # Stock data retrieval
+│   ├── exceptions.py        # Custom errors
+│   ├── historical_var.py    # Historical VaR
+│   ├── monte_carlo_var.py   # Monte Carlo VaR
+│   ├── parametric_var.py    # Parametric VaR
+│   ├── report_generator.py  # Report creation
+│   └── utils.py             # Helper functions
+├── main.py                  # Application entry
+├── .gitignore               # Ignore files
+├── LICENSE                  # MIT License
+├── README.md                # This documentation
+└── requirements.txt         # Dependencies
 ```
 
 ## Dependencies
-- Python >=3.8
-- yfinance
-- numpy
-- pandas
-- scipy
-- matplotlib
+
+- Python 3.8+
+- yfinance - Stock data fetching
+- numpy - Mathematical operations
+- pandas - Data handling
+- scipy - Statistical functions
+- matplotlib - Visualization
 
 ## Limitations
-- Currently supports single-stock portfolios only
-- Uses daily closing prices for calculations
-- Monte Carlo simulation assumes lognormal distribution of returns
+
+- Single-stock portfolios only
+- Uses daily closing prices
+- Monte Carlo assumes lognormal distribution
+- Requires internet connection
 
 ## Contributing
-Contributions are welcome! Please fork the repository and submit a pull request with your improvements.
+
+Contributions welcome! Please fork the repository and submit pull requests.
 
 ## License
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+MIT License - See [LICENSE](LICENSE) for details.
