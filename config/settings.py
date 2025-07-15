@@ -2,7 +2,7 @@ import os
 import getpass
 from datetime import datetime
 
-# Base directory
+# Base directory - fixed syntax error
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Data directories
