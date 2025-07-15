@@ -11,14 +11,23 @@ from .monte_carlo_var import calculate_monte_carlo_var
 from .report_generator import save_portfolio_data, generate_comparison_plot
 from config import settings
 
-# Setup utilities
-utils.add_project_root_to_path()
-
 # Setup logging
-logging.config.fileConfig(
-    os.path.join(settings.BASE_DIR, 'config', 'logging.conf'),
-    defaults={'logfilename': os.path.join(settings.LOGS_DIR, 'app.log')}
-)
+try:
+    logging.config.fileConfig(
+        settings.LOGGING_CONF,
+        defaults={'logfilename': os.path.join(settings.LOGS_DIR, 'app.log')}
+    )
+except FileNotFoundError:
+    # Fallback basic configuration if logging.conf is missing
+    logging.basicConfig(
+        level=logging.INFO,
+        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+        handlers=[
+            logging.StreamHandler(sys.stdout),
+            logging.FileHandler(os.path.join(settings.LOGS_DIR, 'app.log'))
+        ]
+    )
+    
 logger = logging.getLogger(__name__)
 
 def main():
