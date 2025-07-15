@@ -25,6 +25,11 @@ cd VaR_Calculator
 pip install -r requirements.txt
 ```
 
+3. Install editable:
+```bash
+pip install -e.
+```
+
 ## Usage
 
 ### Basic Syntax
