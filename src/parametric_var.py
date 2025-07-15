@@ -8,11 +8,11 @@ def calculate_parametric_var(returns, portfolio_value, confidence_level=0.95, ho
     """
     Calculate Value at Risk using parametric (variance-covariance) method.
     
-    This implementation:
+    Industry Standards:
     - Uses log returns for better financial modeling
-    - Provides a positive VaR value representing potential loss
-    - Handles both normal and stressed market conditions
-    - Includes comprehensive error handling
+    - Properly scales volatility with square root of time
+    - Represents loss as positive value
+    - Based on normal distribution assumption
     
     :param returns: Array of historical log returns
     :param portfolio_value: Current portfolio value
@@ -39,11 +39,10 @@ def calculate_parametric_var(returns, portfolio_value, confidence_level=0.95, ho
         z_score = norm.ppf(1 - confidence_level)
         
         # Calculate VaR using industry-standard formula
-        # Formula: VaR = Portfolio Value × (z-score × σ × √T - μ × T)
-        # We take absolute value to ensure positive loss representation
+        # Formula: VaR = Portfolio Value × |Z × σ × √T - μ × T|
         var = portfolio_value * abs(z_score * std * np.sqrt(horizon) - mean * horizon)
         
-        # Additional check to ensure non-negative VaR
+        # Ensure non-negative VaR
         var = max(0, var)
         
         logger.info(
