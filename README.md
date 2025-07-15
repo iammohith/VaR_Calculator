@@ -34,7 +34,7 @@ pip install -e.
 
 ### Basic Syntax
 ```bash
-var-calculator [TICKER] [EXCHANGE] [PORTFOLIO_VALUE] [OPTIONS]
+VaR-calculator [TICKER] [EXCHANGE] [PORTFOLIO_VALUE] [OPTIONS]
 ```
 ### Alternative Run Method
 ```bash
@@ -60,7 +60,7 @@ python -m src.cli [TICKER] [EXCHANGE] [PORTFOLIO_VALUE] [OPTIONS]
 
 #### Basic Command:
 ```bash
-var-calculator RELIANCE NSE 1000000 --confidence 0.99 --horizon 5
+VaR-calculator RELIANCE NSE 1000000 --confidence 0.99 --horizon 5
 ```
 #### Alternative Command:
 ```bash
