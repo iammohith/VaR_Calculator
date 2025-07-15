@@ -53,11 +53,11 @@ python -m src.cli [TICKER] [EXCHANGE] [PORTFOLIO_VALUE] [OPTIONS]
 
 ### Example
 
-#### 1.Basic Command:
+#### Basic Command:
 ```bash
 var-calculator RELIANCE NSE 1000000 --confidence 0.99 --horizon 5
 ```
-#### 2.Alternative Command:
+#### Alternative Command:
 ```bash
 python -m src.cli RELIANCE NSE 1000000 --confidence 0.99 --horizon 5
 ```
@@ -99,7 +99,7 @@ VaR_Calculator/
 ```
 
 ## Dependencies
-- Python 3.8
+- Python 3.8+
 - yfinance
 - numpy
 - pandas
