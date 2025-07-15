@@ -25,18 +25,9 @@ cd VaR_Calculator
 pip install -r requirements.txt
 ```
 
-3. Install in editable mode:
-```bash
-pip install -e.
-```
-
 ## Usage
 
-### For Installed Command
-```bash
-VaR-calculator [TICKER] [EXCHANGE] [PORTFOLIO_VALUE] [OPTIONS]
-```
-### For Alternative Module Execution Command
+### For Python Module Execution
 ```bash
 python -m src.cli [TICKER] [EXCHANGE] [PORTFOLIO_VALUE] [OPTIONS]
 ```
@@ -58,10 +49,6 @@ python -m src.cli [TICKER] [EXCHANGE] [PORTFOLIO_VALUE] [OPTIONS]
 
 ### Example
 
-#### Using Installed Command
-```bash
-VaR-calculator RELIANCE NSE 1000000 --confidence 0.99 --horizon 5
-```
 #### Using Alternative Module Execution
 ```bash
 python -m src.cli RELIANCE NSE 1000000 --confidence 0.99 --horizon 5
@@ -80,29 +67,39 @@ Comparison plot saved as 'var_comparison.png'
 ## File Structure
 ```
 VaR_Calculator/
-├── bin/                       # Executable scripts
-│   └── VaR-calculator         # Main CLI entry point
-├── config/                    # Configuration files
-│   ├── logging.conf           # Logging configuration
-│   └── settings.py            # Default parameters
-├── src/                       # Source code
-│   ├── calculator/            # VaR calculation methods
-│   │   ├── historical_var.py  # VaR calculation using Historical method
-│   │   ├── monte_carlo_var.py # VaR calculation using Monte Carlo method
-│   │   └── parametric_var.py  # VaR calculation using Parametric method
-│   ├── core/                  # Core functionality
-│   │   ├── data_fetcher.py    # Stock data retrieval
-│   │   ├── exceptions.py      # Custom exceptions
-│   │   └── risk_report.py     # Report generation
-│   └── cli.py                 # Command-line interface
-├── requirements.txt           # Python dependencies
-├── setup.py                   # Package configuration
-├── .gitignore                 # Version control exclusions
-├── LICENSE                    # MIT License
-├── MANIFEST.in                # Includes non-Python files in distribution
-├── README.md                  # Entire project README
-├── pyproject.toml             # Specifies modern build requirements
-└── setup.cfg                  # Contains package metadata and configuration
+├── config/
+│   ├── logging.conf
+│   └── settings.py
+├── data/
+│   ├── logs/
+│   │   └── user.csv
+│   │   └── input_<user>_<date>_<time>.csv
+│   ├── portfolios/
+│   │   └── portfolio_<user>_<ticker>_<date>_<time>.csv
+│   ├── results/
+│   │   └── var_result_<user>_<ticker>_<date>_<time>.csv
+│   └── reports/
+│   │   └── var_report_<user>_<ticker>_<date>_<time>.png
+├── src/
+│   └── var_calculator/
+│       ├── __init__.py
+│       ├── calculator/
+│       │   ├── historical_VaR.py
+│       │   ├── monte_carlo_VaR.py
+│       │   └── parametric_VaR.py
+│       ├── core/
+│       │   ├── data_fetcher.py
+│       │   ├── exceptions.py
+│       │   └── report_VaR.py
+│       └── cli.py
+├── .gitignore
+├── LICENSE
+├── MANIFEST.in
+├── README.md
+├── pyproject.toml
+├── setup.cfg
+├── setup.py
+└── requirements.txt
 ```
 
 ## Dependencies
