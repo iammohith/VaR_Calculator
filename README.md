@@ -27,7 +27,7 @@ pip install -r requirements.txt
 
 3. Install in editable mode:
 ```bash
-pip install -e.
+pip install -e VaR_Calculator/
 ```
 
 ## Usage
