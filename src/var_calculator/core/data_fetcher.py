@@ -2,6 +2,7 @@ import yfinance as yf
 import pandas as pd
 import logging
 import sys
+import os
 
 # Add project root to path
 project_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
