@@ -85,9 +85,6 @@ VaR_Calculator/
 ├── config/                    # Configuration files
 │   ├── logging.conf           # Logging configuration
 │   └── settings.py            # Default parameters
-├── data/                      # Data storage directory
-├── docs/                      # Documentation
-│   └── README.md              # Syntax
 ├── src/                       # Source code
 │   ├── calculator/            # VaR calculation methods
 │   │   ├── historical_var.py  # VaR calculation using Historical method
