@@ -74,7 +74,7 @@ Comparison plot saved as 'var_comparison.png'
 
 ## File Structure
 ```
-VaR_Calculator_Python_CLI/
+VaR_Calculator/
 ├── bin/                       # Executable scripts
 │   └── var-calculator         # Main CLI entry point
 ├── config/                    # Configuration files
