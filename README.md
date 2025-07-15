@@ -100,7 +100,12 @@ VaR_Calculator/
 │   └── cli.py                 # Command-line interface
 ├── requirements.txt           # Python dependencies
 ├── setup.py                   # Package configuration
-└── .gitignore                 # Version control exclusions
+├── .gitignore                 # Version control exclusions
+├── LICENSE                    # MIT License
+├── MANIFEST.in
+├── README.md                
+├── pyproject.toml
+└── setup.cfg
 ```
 
 ## Dependencies
