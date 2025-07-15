@@ -1,1 +1,22 @@
+# Byte-compiled files
+__pycache__/
+*.py[cod]
 
+# Data files
+data/
+*.csv
+*.png
+*.log
+
+# Environments
+.env
+.venv
+env/
+venv/
+
+# IDE
+.idea/
+.vscode/
+
+# System files
+.DS_Store
