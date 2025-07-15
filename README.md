@@ -76,7 +76,7 @@ Comparison plot saved as 'var_comparison.png'
 ```
 VaR_Calculator/
 ├── bin/                       # Executable scripts
-│   └── var-calculator         # Main CLI entry point
+│   └── VaR-calculator         # Main CLI entry point
 ├── config/                    # Configuration files
 │   ├── logging.conf           # Logging configuration
 │   └── settings.py            # Default parameters
