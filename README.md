@@ -56,12 +56,14 @@ python -m src.cli RELIANCE NSE 1000000 --confidence 0.99 --horizon 5
 
 #### Sample Output
 ```
-Value at Risk Report:
+Portfolio data saved as: 'portfolio_<user>_<ticker>_<date>_<time>.csv'
+
+Value at Risk for RELIANCE portflio of value 1000000:
 Parametric Var: ₹48,215.67
 Historical Var: ₹52,890.45
 Monte Carlo Var: ₹51,327.83
 
-Comparison plot saved as 'var_comparison.png'
+Comparison plot saved as 'var_report_<user>_<ticker>_<date>_<time>.png'
 ```
 
 ## File Structure
