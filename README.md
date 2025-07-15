@@ -102,14 +102,14 @@ VaR_Calculator/
 ├── setup.py                   # Package configuration
 ├── .gitignore                 # Version control exclusions
 ├── LICENSE                    # MIT License
-├── MANIFEST.in
-├── README.md                
-├── pyproject.toml
-└── setup.cfg
+├── MANIFEST.in                # Includes non-Python files in distribution
+├── README.md                  # Entire project README
+├── pyproject.toml             # Specifies modern build requirements
+└── setup.cfg                  # Contains package metadata and configuration
 ```
 
 ## Dependencies
-- Python 3.8+
+- Python >=3.8
 - yfinance
 - numpy
 - pandas
