@@ -2,10 +2,21 @@ import argparse
 import logging
 import logging.config
 import os
+import sys
 import numpy as np
-from config import settings
-from .core import data_fetcher, report_VaR
-from .calculator import historical_VaR, monte_carlo_VaR, parametric_VaR
+
+# Add project root to path for module resolution
+project_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if project_root not in sys.path:
+    sys.path.insert(0, project_root)
+
+try:
+    from config import settings
+    from src.var_calculator.core import data_fetcher, report_VaR
+    from src.var_calculator.calculator import historical_VaR, monte_carlo_VaR, parametric_VaR
+except ImportError as e:
+    print(f"Import error: {str(e)}")
+    raise
 
 # Setup logging
 logging.config.fileConfig(
