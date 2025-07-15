@@ -1,6 +1,6 @@
 # VaR Calculation Using Three Different Methodologies From yfinance api
 
-A command-line tool for calculating Value at Risk (VaR) of Indian stocks using three different methodologies. This tool helps investors quantify potential portfolio losses under normal market conditions.
+A command-line tool for calculating Value at Risk (VaR) of Indian stocks using three different methodologies by fetching the data from the yfinance api. This tool helps investors quantify potential portfolio losses under normal market conditions.
 
 ## Features
 
