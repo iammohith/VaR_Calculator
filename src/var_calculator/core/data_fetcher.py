@@ -4,10 +4,8 @@ import logging
 import sys
 import os
 
-# Add project root to path
-project_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
-if project_root not in sys.path:
-    sys.path.insert(0, project_root)
+# Import local utils
+from .utils import get_project_root
 
 try:
     from .exceptions import DataFetchError
@@ -15,6 +13,11 @@ except ImportError:
     from src.var_calculator.core.exceptions import DataFetchError
 
 logger = logging.getLogger(__name__)
+
+# Add project root to path
+project_root = get_project_root()
+if project_root not in sys.path:
+    sys.path.insert(0, project_root)
 
 def fetch_stock_data(ticker, exchange, window=252):
     """
