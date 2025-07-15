@@ -25,18 +25,18 @@ cd VaR_Calculator
 pip install -r requirements.txt
 ```
 
-3. Install editable:
+3. Install in editable mode:
 ```bash
 pip install -e.
 ```
 
 ## Usage
 
-### Basic Syntax
+### For Installed Command
 ```bash
 VaR-calculator [TICKER] [EXCHANGE] [PORTFOLIO_VALUE] [OPTIONS]
 ```
-### Alternative Run Method
+### For Alternative Module Execution Command
 ```bash
 python -m src.cli [TICKER] [EXCHANGE] [PORTFOLIO_VALUE] [OPTIONS]
 ```
@@ -58,11 +58,11 @@ python -m src.cli [TICKER] [EXCHANGE] [PORTFOLIO_VALUE] [OPTIONS]
 
 ### Example
 
-#### Basic Command:
+#### Using Installed Command
 ```bash
 VaR-calculator RELIANCE NSE 1000000 --confidence 0.99 --horizon 5
 ```
-#### Alternative Command:
+#### Using Alternative Module Execution
 ```bash
 python -m src.cli RELIANCE NSE 1000000 --confidence 0.99 --horizon 5
 ```
