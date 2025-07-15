@@ -1,4 +1,5 @@
 import numpy as np
+import pandas as pd
 from scipy.stats import norm
 
 def calculate_parametric_var(returns: pd.Series, portfolio_value: float, 
