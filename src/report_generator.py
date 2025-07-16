@@ -8,7 +8,7 @@ logger = logging.getLogger(__name__)
 
 def save_portfolio_data(ticker, exchange, portfolio_value):
     """
-    Save portfolio data to CSV file.
+    Save portfolio data to CSV file including exchange information.
     
     :param ticker: Stock ticker
     :param exchange: Stock exchange
@@ -25,7 +25,8 @@ def save_portfolio_data(ticker, exchange, portfolio_value):
         }
         df = pd.DataFrame(data)
         
-        filename = f"portfolio_{settings.CURRENT_USER}_{ticker}_{settings.TIMESTAMP}.csv"
+        # Include exchange in filename
+        filename = f"portfolio_{settings.CURRENT_USER}_{exchange}_{ticker}_{settings.TIMESTAMP}.csv"
         filepath = os.path.join(settings.PORTFOLIOS_DIR, filename)
         df.to_csv(filepath, index=False)
         
@@ -37,15 +38,16 @@ def save_portfolio_data(ticker, exchange, portfolio_value):
         raise
 
 def generate_comparison_plot(parametric_var, historical_var, monte_carlo_var, 
-                             portfolio_value, ticker):
+                             portfolio_value, ticker, exchange):
     """
-    Generate comparison plot of VaR methodologies.
+    Generate comparison plot of VaR methodologies including exchange info.
     
     :param parametric_var: Parametric VaR value
     :param historical_var: Historical VaR value
     :param monte_carlo_var: Monte Carlo VaR value
     :param portfolio_value: Portfolio value
     :param ticker: Stock ticker
+    :param exchange: Stock exchange
     :return: File path of saved plot
     """
     try:
@@ -55,7 +57,9 @@ def generate_comparison_plot(parametric_var, historical_var, monte_carlo_var,
         plt.figure(figsize=(10, 6))
         bars = plt.bar(methods, values, color=['#1f77b4', '#ff7f0e', '#2ca02c'])
         
-        plt.title(f'VaR Comparison for {ticker} (Portfolio Value: ₹{portfolio_value:,.2f})', fontsize=14)
+        # Include exchange in title
+        plt.title(f'VaR Comparison for {ticker} ({exchange}) (Portfolio Value: ₹{portfolio_value:,.2f})', 
+                 fontsize=14)
         plt.xlabel('Methodology', fontsize=12)
         plt.ylabel('Value at Risk (₹)', fontsize=12)
         plt.grid(axis='y', linestyle='--', alpha=0.7)
@@ -69,8 +73,8 @@ def generate_comparison_plot(parametric_var, historical_var, monte_carlo_var,
                          textcoords="offset points",
                          ha='center', va='bottom')
         
-        # Save plot
-        filename = f"var_report_{settings.CURRENT_USER}_{ticker}_{settings.TIMESTAMP}.png"
+        # Include exchange in filename
+        filename = f"var_report_{settings.CURRENT_USER}_{exchange}_{ticker}_{settings.TIMESTAMP}.png"
         filepath = os.path.join(settings.REPORTS_DIR, filename)
         plt.tight_layout()
         plt.savefig(filepath, dpi=300)
