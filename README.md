@@ -1,4 +1,5 @@
 # VaR Calculator for Indian Stocks
+![VaR Calculation Methods](https://via.placeholder.com/800x400?text=VaR+Methodology+Comparison)
 
 A command-line tool that calculates Value at Risk (VaR) for Indian stocks using three different methodologies. Fetches stock data from Yahoo Finance and helps investors quantify potential portfolio losses.
 
@@ -12,6 +13,7 @@ A command-line tool that calculates Value at Risk (VaR) for Indian stocks using 
 - **Visual Reports**: Generates comparative charts of results
 - **Configurable Parameters**: Adjust confidence level, time horizon, etc.
 - **Automatic Data Management**: Creates necessary directories at runtime
+- **Comprehensive Reporting**: Saves portfolio data and generates comparison charts
 
 ## Installation
 
@@ -64,10 +66,10 @@ Value at Risk for RELIANCE (NSE) portfolio of value ₹1,000,000.00:
 • Parametric VaR:   ₹67,788.39
 • Historical VaR:   ₹74,384.95
 • Monte Carlo VaR:  ₹69,182.25
-
-Portfolio data saved as: 'portfolio_iammohith_NSE_RELIANCE_20250716_101928.csv'
-Comparison plot saved as: 'var_report_iammohith_NSE_RELIANCE_20250716_101928.png'
 ```
+
+### Sample Report:
+![VaR Comparison Report](data/reports/var_report_iammohith_NSE_RELIANCE_20250716_101928.png)
 
 ## Project Structure
 
@@ -105,12 +107,30 @@ VaR_Calculator/
 - scipy - Statistical functions
 - matplotlib - Visualization
 
+## Key Features
+
+1. **Accurate Calculations**:
+   - Industry-standard VaR formulas
+   - Proper handling of time horizon scaling
+   - Robust input validation
+2. **Comprehensive Reporting**:
+   - Portfolio data saved as CSV
+   - Comparative visualization of all three methods
+   - Automatic timestamping of outputs
+3. **Exchange Support**:
+   - Clear identification of exchange in all outputs
+   - Supports both NSE and BSE
+4. **User-Friendly**:
+   - Detailed logging
+   - Clear console output
+   - Easy-to-understand reports
+
 ## Limitations
 
 - Single-stock portfolios only
 - Uses daily closing prices
 - Monte Carlo assumes lognormal distribution
-- Requires internet connection
+- Requires internet connection for data fetching
 
 ## Contributing
 
