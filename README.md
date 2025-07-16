@@ -70,7 +70,7 @@ Value at Risk for RELIANCE (NSE) portfolio of value ₹1,000,000.00:
 ### Sample Report:
 ![VaR Comparison Report](data/reports/var_report_iammohith_NSE_RELIANCE_20250716_101928.png)
 
-## Project Structure
+## Project File Structure
 
 ```
 VaR_Calculator/
