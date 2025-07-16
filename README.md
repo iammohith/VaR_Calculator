@@ -1,5 +1,4 @@
 # VaR Calculator for Indian Stocks
-![VaR Calculation Methods](https://via.placeholder.com/800x400?text=VaR+Methodology+Comparison)
 
 A command-line tool that calculates Value at Risk (VaR) for Indian stocks using three different methodologies. Fetches stock data from Yahoo Finance and helps investors quantify potential portfolio losses.
 
