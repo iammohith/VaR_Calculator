@@ -1,0 +1,4 @@
+2025-07-16 10:19:28 - src.cli - INFO - Calculating VaR for RELIANCE on NSE
+2025-07-16 10:19:28 - src.cli - INFO - Portfolio value: ₹1,000,000.00
+2025-07-16 10:19:28 - src.cli - INFO - Confidence: 99.0%, Horizon: 5 days
+2025-07-16 10:19:28 - src.cli - INFO - Data window: 252 days, Simulations: 10000
