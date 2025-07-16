@@ -55,17 +55,18 @@ python main.py RELIANCE NSE 1000000 --confidence 0.99 --horizon 5
 
 ### Sample Output:
 ```
-2025-07-16 00:08:35 - src.cli - INFO - Calculating VaR for RELIANCE on NSE
-2025-07-16 00:08:35 - src.cli - INFO - Portfolio value: ₹1,000,000.00
-2025-07-16 00:08:35 - src.cli - INFO - Confidence: 99.0%, Horizon: 5 days
+2025-07-16 10:19:28 - src.cli - INFO - Calculating VaR for RELIANCE on NSE
+2025-07-16 10:19:28 - src.cli - INFO - Portfolio value: ₹1,000,000.00
+2025-07-16 10:19:28 - src.cli - INFO - Confidence: 99.0%, Horizon: 5 days
+2025-07-16 10:19:28 - src.cli - INFO - Data window: 252 days, Simulations: 10000
 
-Value at Risk for RELIANCE portfolio of value ₹1,000,000.00:
-Parametric VaR: ₹68,172.24
-Historical VaR: ₹74,384.95
-Monte Carlo VaR: ₹68,939.54
+Value at Risk for RELIANCE (NSE) portfolio of value ₹1,000,000.00:
+• Parametric VaR:   ₹67,788.39
+• Historical VaR:   ₹74,384.95
+• Monte Carlo VaR:  ₹69,182.25
 
-Portfolio data saved as: 'portfolio_iammohith_RELIANCE_20250716_000835.csv'
-Comparison plot saved as 'var_report_iammohith_RELIANCE_20250716_000835.png'
+Portfolio data saved as: 'portfolio_iammohith_NSE_RELIANCE_20250716_101928.csv'
+Comparison plot saved as: 'var_report_iammohith_NSE_RELIANCE_20250716_101928.png'
 ```
 
 ## Project Structure
